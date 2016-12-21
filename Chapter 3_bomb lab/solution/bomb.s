@@ -1,5 +1,5 @@
 
-bomb:     file format elf32-i386
+bomb：     文件格式 elf32-i386
 
 
 Disassembly of section .init:
@@ -398,30 +398,30 @@ Disassembly of section .text:
 08048b48 <phase_2>:
  8048b48:	55                   	push   %ebp
  8048b49:	89 e5                	mov    %esp,%ebp
- 8048b4b:	83 ec 20             	sub    $0x20,%esp -------- esp - 32
+ 8048b4b:	83 ec 20             	sub    $0x20,%esp
  8048b4e:	56                   	push   %esi
  8048b4f:	53                   	push   %ebx
- 8048b50:	8b 55 08             	mov    0x8(%ebp),%edx -------------- get &phase_2
- 8048b53:	83 c4 f8             	add    $0xfffffff8,%esp ------------- esp -8
- 8048b56:	8d 45 e8             	lea    -0x18(%ebp),%eax ----- eax = ebp - 24
+ 8048b50:	8b 55 08             	mov    0x8(%ebp),%edx
+ 8048b53:	83 c4 f8             	add    $0xfffffff8,%esp
+ 8048b56:	8d 45 e8             	lea    -0x18(%ebp),%eax
  8048b59:	50                   	push   %eax
- 8048b5a:	52                   	push   %edx --------- push &phase_2
+ 8048b5a:	52                   	push   %edx
  8048b5b:	e8 78 04 00 00       	call   8048fd8 <read_six_numbers>
  8048b60:	83 c4 10             	add    $0x10,%esp
- 8048b63:	83 7d e8 01          	cmpl   $0x1,-0x18(%ebp)  ------------------ :1 ($ebp)-0x18 is the first number
- 8048b67:	74 05                	je     8048b6e <phase_2+0x26>  --------- esi==1, goto next 
+ 8048b63:	83 7d e8 01          	cmpl   $0x1,-0x18(%ebp)
+ 8048b67:	74 05                	je     8048b6e <phase_2+0x26>
  8048b69:	e8 8e 09 00 00       	call   80494fc <explode_bomb>
- 8048b6e:	bb 01 00 00 00       	mov    $0x1,%ebx      ---------- :next
+ 8048b6e:	bb 01 00 00 00       	mov    $0x1,%ebx
  8048b73:	8d 75 e8             	lea    -0x18(%ebp),%esi
- 8048b76:	8d 43 01             	lea    0x1(%ebx),%eax  --------------loop
- 8048b79:	0f af 44 9e fc       	imul   -0x4(%esi,%ebx,4),%eax --------- 
- 8048b7e:	39 04 9e             	cmp    %eax,(%esi,%ebx,4) ---------(esi+4*ebx) : eax
- 8048b81:	74 05                	je     8048b88 <phase_2+0x40> ---if == goto next2
+ 8048b76:	8d 43 01             	lea    0x1(%ebx),%eax
+ 8048b79:	0f af 44 9e fc       	imul   -0x4(%esi,%ebx,4),%eax
+ 8048b7e:	39 04 9e             	cmp    %eax,(%esi,%ebx,4)
+ 8048b81:	74 05                	je     8048b88 <phase_2+0x40>
  8048b83:	e8 74 09 00 00       	call   80494fc <explode_bomb>
- 8048b88:	43                   	inc    %ebx -----------------ebx++ ------- next2
- 8048b89:	83 fb 05             	cmp    $0x5,%ebx  -------------- ebx : 5
- 8048b8c:	7e e8                	jle    8048b76 <phase_2+0x2e> -------if <=, goto loop
- 8048b8e:	8d 65 d8             	lea    -0x28(%ebp),%esp  --------------------end
+ 8048b88:	43                   	inc    %ebx
+ 8048b89:	83 fb 05             	cmp    $0x5,%ebx
+ 8048b8c:	7e e8                	jle    8048b76 <phase_2+0x2e>
+ 8048b8e:	8d 65 d8             	lea    -0x28(%ebp),%esp
  8048b91:	5b                   	pop    %ebx
  8048b92:	5e                   	pop    %esi
  8048b93:	89 ec                	mov    %ebp,%esp
@@ -434,9 +434,9 @@ Disassembly of section .text:
  8048b99:	89 e5                	mov    %esp,%ebp
  8048b9b:	83 ec 14             	sub    $0x14,%esp
  8048b9e:	53                   	push   %ebx
- 8048b9f:	8b 55 08             	mov    0x8(%ebp),%edx -------get &phase_3
- 8048ba2:	83 c4 f4             	add    $0xfffffff4,%esp --------  esp-12
- 8048ba5:	8d 45 fc             	lea    -0x4(%ebp),%eax  ---------- eax = ebp - 4
+ 8048b9f:	8b 55 08             	mov    0x8(%ebp),%edx
+ 8048ba2:	83 c4 f4             	add    $0xfffffff4,%esp
+ 8048ba5:	8d 45 fc             	lea    -0x4(%ebp),%eax
  8048ba8:	50                   	push   %eax
  8048ba9:	8d 45 fb             	lea    -0x5(%ebp),%eax
  8048bac:	50                   	push   %eax
@@ -445,60 +445,60 @@ Disassembly of section .text:
  8048bb1:	68 de 97 04 08       	push   $0x80497de
  8048bb6:	52                   	push   %edx
  8048bb7:	e8 a4 fc ff ff       	call   8048860 <sscanf@plt>
- 8048bbc:	83 c4 20             	add    $0x20,%esp ---------- esp+32
- 8048bbf:	83 f8 02             	cmp    $0x2,%eax  ---------- 输入的参数大于2
+ 8048bbc:	83 c4 20             	add    $0x20,%esp
+ 8048bbf:	83 f8 02             	cmp    $0x2,%eax
  8048bc2:	7f 05                	jg     8048bc9 <phase_3+0x31>
  8048bc4:	e8 33 09 00 00       	call   80494fc <explode_bomb>
- 8048bc9:	83 7d f4 07          	cmpl   $0x7,-0xc(%ebp) --------- 第一个数字与7比较, 大于7就跪了
- 8048bcd:	0f 87 b5 00 00 00    	ja     8048c88 <phase_3+0xf0> ------  跳到爆炸指令
- 8048bd3:	8b 45 f4             	mov    -0xc(%ebp),%eax ---------- eax 中保存第一个数字
- 8048bd6:	ff 24 85 e8 97 04 08 	jmp    *0x80497e8(,%eax,4) ------- 直接跳转指令, 是一条switch语句
+ 8048bc9:	83 7d f4 07          	cmpl   $0x7,-0xc(%ebp)
+ 8048bcd:	0f 87 b5 00 00 00    	ja     8048c88 <phase_3+0xf0>
+ 8048bd3:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 8048bd6:	ff 24 85 e8 97 04 08 	jmp    *0x80497e8(,%eax,4)
  8048bdd:	8d 76 00             	lea    0x0(%esi),%esi
- 8048be0:	b3 71                	mov    $0x71,%bl     ------------  case 0:  $bl保存的第二个字符
- 8048be2:	81 7d fc 09 03 00 00 	cmpl   $0x309,-0x4(%ebp)   ------------- ($ebp)-0x4 中保存第三个数字
+ 8048be0:	b3 71                	mov    $0x71,%bl
+ 8048be2:	81 7d fc 09 03 00 00 	cmpl   $0x309,-0x4(%ebp)
  8048be9:	0f 84 a0 00 00 00    	je     8048c8f <phase_3+0xf7>
  8048bef:	e8 08 09 00 00       	call   80494fc <explode_bomb>
  8048bf4:	e9 96 00 00 00       	jmp    8048c8f <phase_3+0xf7>
  8048bf9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
- 8048c00:	b3 62                	mov    $0x62,%bl  ---------------- case 1:
+ 8048c00:	b3 62                	mov    $0x62,%bl
  8048c02:	81 7d fc d6 00 00 00 	cmpl   $0xd6,-0x4(%ebp)
  8048c09:	0f 84 80 00 00 00    	je     8048c8f <phase_3+0xf7>
  8048c0f:	e8 e8 08 00 00       	call   80494fc <explode_bomb>
  8048c14:	eb 79                	jmp    8048c8f <phase_3+0xf7>
- 8048c16:	b3 62                	mov    $0x62,%bl ---------------- case 2:
+ 8048c16:	b3 62                	mov    $0x62,%bl
  8048c18:	81 7d fc f3 02 00 00 	cmpl   $0x2f3,-0x4(%ebp)
  8048c1f:	74 6e                	je     8048c8f <phase_3+0xf7>
  8048c21:	e8 d6 08 00 00       	call   80494fc <explode_bomb>
  8048c26:	eb 67                	jmp    8048c8f <phase_3+0xf7>
- 8048c28:	b3 6b                	mov    $0x6b,%bl -------------- case 3:
+ 8048c28:	b3 6b                	mov    $0x6b,%bl
  8048c2a:	81 7d fc fb 00 00 00 	cmpl   $0xfb,-0x4(%ebp)
  8048c31:	74 5c                	je     8048c8f <phase_3+0xf7>
  8048c33:	e8 c4 08 00 00       	call   80494fc <explode_bomb>
  8048c38:	eb 55                	jmp    8048c8f <phase_3+0xf7>
  8048c3a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
- 8048c40:	b3 6f                	mov    $0x6f,%bl --------------- case 4:
+ 8048c40:	b3 6f                	mov    $0x6f,%bl
  8048c42:	81 7d fc a0 00 00 00 	cmpl   $0xa0,-0x4(%ebp)
  8048c49:	74 44                	je     8048c8f <phase_3+0xf7>
  8048c4b:	e8 ac 08 00 00       	call   80494fc <explode_bomb>
  8048c50:	eb 3d                	jmp    8048c8f <phase_3+0xf7>
- 8048c52:	b3 74                	mov    $0x74,%bl --------------- case 5:
+ 8048c52:	b3 74                	mov    $0x74,%bl
  8048c54:	81 7d fc ca 01 00 00 	cmpl   $0x1ca,-0x4(%ebp)
  8048c5b:	74 32                	je     8048c8f <phase_3+0xf7>
  8048c5d:	e8 9a 08 00 00       	call   80494fc <explode_bomb>
  8048c62:	eb 2b                	jmp    8048c8f <phase_3+0xf7>
- 8048c64:	b3 76                	mov    $0x76,%bl --------------- case 6:
+ 8048c64:	b3 76                	mov    $0x76,%bl
  8048c66:	81 7d fc 0c 03 00 00 	cmpl   $0x30c,-0x4(%ebp)
  8048c6d:	74 20                	je     8048c8f <phase_3+0xf7>
  8048c6f:	e8 88 08 00 00       	call   80494fc <explode_bomb>
  8048c74:	eb 19                	jmp    8048c8f <phase_3+0xf7>
- 8048c76:	b3 62                	mov    $0x62,%bl --------------- case 7:
- 8048c78:	81 7d fc 0c 02 00 00 	cmpl   $0x20c,-0x4(%ebp) ------- 比较第3个数与524的大小
- 8048c7f:	74 0e                	je     8048c8f <phase_3+0xf7> ----- 相等, 否则爆炸, goto next
+ 8048c76:	b3 62                	mov    $0x62,%bl
+ 8048c78:	81 7d fc 0c 02 00 00 	cmpl   $0x20c,-0x4(%ebp)
+ 8048c7f:	74 0e                	je     8048c8f <phase_3+0xf7>
  8048c81:	e8 76 08 00 00       	call   80494fc <explode_bomb>
  8048c86:	eb 07                	jmp    8048c8f <phase_3+0xf7>
  8048c88:	b3 78                	mov    $0x78,%bl
  8048c8a:	e8 6d 08 00 00       	call   80494fc <explode_bomb>
- 8048c8f:	3a 5d fb             	cmp    -0x5(%ebp),%bl  ---------- next, 比较第2个字符与'b'
+ 8048c8f:	3a 5d fb             	cmp    -0x5(%ebp),%bl
  8048c92:	74 05                	je     8048c99 <phase_3+0x101>
  8048c94:	e8 63 08 00 00       	call   80494fc <explode_bomb>
  8048c99:	8b 5d e8             	mov    -0x18(%ebp),%ebx
@@ -512,23 +512,23 @@ Disassembly of section .text:
  8048ca3:	83 ec 10             	sub    $0x10,%esp
  8048ca6:	56                   	push   %esi
  8048ca7:	53                   	push   %ebx
- 8048ca8:	8b 5d 08             	mov    0x8(%ebp),%ebx ----得到递归函数参数var
- 8048cab:	83 fb 01             	cmp    $0x1,%ebx  ----------  递归结束状态,var<= 1
- 8048cae:	7e 20                	jle    8048cd0 <func4+0x30>  ---- goto done
+ 8048ca8:	8b 5d 08             	mov    0x8(%ebp),%ebx
+ 8048cab:	83 fb 01             	cmp    $0x1,%ebx
+ 8048cae:	7e 20                	jle    8048cd0 <func4+0x30>
  8048cb0:	83 c4 f4             	add    $0xfffffff4,%esp
- 8048cb3:	8d 43 ff             	lea    -0x1(%ebx),%eax   -------- result =  var - 1
- 8048cb6:	50                   	push   %eax     ----------------- 将var - 1作为下一次递归的参数
+ 8048cb3:	8d 43 ff             	lea    -0x1(%ebx),%eax
+ 8048cb6:	50                   	push   %eax
  8048cb7:	e8 e4 ff ff ff       	call   8048ca0 <func4>
- 8048cbc:	89 c6                	mov    %eax,%esi  ---------------  %esi中保存返回值
+ 8048cbc:	89 c6                	mov    %eax,%esi
  8048cbe:	83 c4 f4             	add    $0xfffffff4,%esp
- 8048cc1:	8d 43 fe             	lea    -0x2(%ebx),%eax  --------- var - 2
- 8048cc4:	50                   	push   %eax -------------- 再将var - 2 作为参数递归调用
+ 8048cc1:	8d 43 fe             	lea    -0x2(%ebx),%eax
+ 8048cc4:	50                   	push   %eax
  8048cc5:	e8 d6 ff ff ff       	call   8048ca0 <func4>
- 8048cca:	01 f0                	add    %esi,%eax  ------------ result = func4(var-1) + func4(var-2)
- 8048ccc:	eb 07                	jmp    8048cd5 <func4+0x35>  ---------- goto over
+ 8048cca:	01 f0                	add    %esi,%eax
+ 8048ccc:	eb 07                	jmp    8048cd5 <func4+0x35>
  8048cce:	89 f6                	mov    %esi,%esi
- 8048cd0:	b8 01 00 00 00       	mov    $0x1,%eax  --------- done, return 1 
- 8048cd5:	8d 65 e8             	lea    -0x18(%ebp),%esp -------- over
+ 8048cd0:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048cd5:	8d 65 e8             	lea    -0x18(%ebp),%esp
  8048cd8:	5b                   	pop    %ebx
  8048cd9:	5e                   	pop    %esi
  8048cda:	89 ec                	mov    %ebp,%esp
@@ -540,29 +540,30 @@ Disassembly of section .text:
  8048ce0:	55                   	push   %ebp
  8048ce1:	89 e5                	mov    %esp,%ebp
  8048ce3:	83 ec 18             	sub    $0x18,%esp
- 8048ce6:	8b 55 08             	mov    0x8(%ebp),%edx ----- get &phase_4
- 8048ce9:	83 c4 fc             	add    $0xfffffffc,%esp ----- esp - 4
- 8048cec:	8d 45 fc             	lea    -0x4(%ebp),%eax ------- 
+ 8048ce6:	8b 55 08             	mov    0x8(%ebp),%edx
+ 8048ce9:	83 c4 fc             	add    $0xfffffffc,%esp
+ 8048cec:	8d 45 fc             	lea    -0x4(%ebp),%eax
  8048cef:	50                   	push   %eax
  8048cf0:	68 08 98 04 08       	push   $0x8049808
  8048cf5:	52                   	push   %edx
  8048cf6:	e8 65 fb ff ff       	call   8048860 <sscanf@plt>
  8048cfb:	83 c4 10             	add    $0x10,%esp
- 8048cfe:	83 f8 01             	cmp    $0x1,%eax  ----- 返回读入的整数个数, 应该读入一个整数
+ 8048cfe:	83 f8 01             	cmp    $0x1,%eax
  8048d01:	75 06                	jne    8048d09 <phase_4+0x29>
- 8048d03:	83 7d fc 00          	cmpl   $0x0,-0x4(%ebp)  -------- ($ebp)-4 中保存读入的整数
- 8048d07:	7f 05                	jg     8048d0e <phase_4+0x2e>  -------  读入的数要大于0
+ 8048d03:	83 7d fc 00          	cmpl   $0x0,-0x4(%ebp)
+ 8048d07:	7f 05                	jg     8048d0e <phase_4+0x2e>
  8048d09:	e8 ee 07 00 00       	call   80494fc <explode_bomb>
- 8048d0e:	83 c4 f4             	add    $0xfffffff4,%esp ----- esp - 12
- 8048d11:	8b 45 fc             	mov    -0x4(%ebp),%eax  --------- get input num 
+ 8048d0e:	83 c4 f4             	add    $0xfffffff4,%esp
+ 8048d11:	8b 45 fc             	mov    -0x4(%ebp),%eax
  8048d14:	50                   	push   %eax
  8048d15:	e8 86 ff ff ff       	call   8048ca0 <func4>
  8048d1a:	83 c4 10             	add    $0x10,%esp
- 8048d1d:	83 f8 37             	cmp    $0x37,%eax  ------------- func4的返回值应该为0x37(55)
+ 8048d1d:	83 f8 37             	cmp    $0x37,%eax
  8048d20:	74 05                	je     8048d27 <phase_4+0x47>
  8048d22:	e8 d5 07 00 00       	call   80494fc <explode_bomb>
  8048d27:	89 ec                	mov    %ebp,%esp
  8048d29:	5d                   	pop    %ebp
+ 8048d2a:	c3                   	ret    
  8048d2b:	90                   	nop
 
 08048d2c <phase_5>:
@@ -571,34 +572,34 @@ Disassembly of section .text:
  8048d2f:	83 ec 10             	sub    $0x10,%esp
  8048d32:	56                   	push   %esi
  8048d33:	53                   	push   %ebx
- 8048d34:	8b 5d 08             	mov    0x8(%ebp),%ebx  --- get &phase_5
- 8048d37:	83 c4 f4             	add    $0xfffffff4,%esp ---- esp - 12
+ 8048d34:	8b 5d 08             	mov    0x8(%ebp),%ebx
+ 8048d37:	83 c4 f4             	add    $0xfffffff4,%esp
  8048d3a:	53                   	push   %ebx
  8048d3b:	e8 d8 02 00 00       	call   8049018 <string_length>
  8048d40:	83 c4 10             	add    $0x10,%esp
- 8048d43:	83 f8 06             	cmp    $0x6,%eax  ------- 说明字符串长度为6
- 8048d46:	74 05                	je     8048d4d <phfase_5+0x21>
+ 8048d43:	83 f8 06             	cmp    $0x6,%eax
+ 8048d46:	74 05                	je     8048d4d <phase_5+0x21>
  8048d48:	e8 af 07 00 00       	call   80494fc <explode_bomb>
- 8048d4d:	31 d2                	xor    %edx,%edx   ---- %edx = 0
+ 8048d4d:	31 d2                	xor    %edx,%edx
  8048d4f:	8d 4d f8             	lea    -0x8(%ebp),%ecx
- 8048d52:	be 20 b2 04 08       	mov    $0x804b220,%esi  ----应该是一张table的起始地址
- 8048d57:	8a 04 1a             	mov    (%edx,%ebx,1),%al   -- loop  %al = (%edx+%ebx),遍历6个字符
- 8048d5a:	24 0f                	and    $0xf,%al  ----- %al = %al & 0xf, 将字符高4位置0
- 8048d5c:	0f be c0             	movsbl %al,%eax   ---------- 将al扩展为eax, 除低4位,高位都是0
- 8048d5f:	8a 04 30             	mov    (%eax,%esi,1),%al  ----- %al = (字符低4位 + %esi), 在table中查找
- 8048d62:	88 04 0a             	mov    %al,(%edx,%ecx,1)   -------将查找到的table中的字符放到(%ebp-8)为起始的位置
+ 8048d52:	be 20 b2 04 08       	mov    $0x804b220,%esi
+ 8048d57:	8a 04 1a             	mov    (%edx,%ebx,1),%al
+ 8048d5a:	24 0f                	and    $0xf,%al
+ 8048d5c:	0f be c0             	movsbl %al,%eax
+ 8048d5f:	8a 04 30             	mov    (%eax,%esi,1),%al
+ 8048d62:	88 04 0a             	mov    %al,(%edx,%ecx,1)
  8048d65:	42                   	inc    %edx
- 8048d66:	83 fa 05             	cmp    $0x5,%edx   ------- %edx : 5
- 8048d69:	7e ec                	jle    8048d57 <phase_5+0x2b>  ------- if <= goto loop
- 8048d6b:	c6 45 fe 00          	movb   $0x0,-0x2(%ebp)   ----- 字符存在(%ebp-8)-(%ebp-1)中,(%ebp-2)存放'\0'
+ 8048d66:	83 fa 05             	cmp    $0x5,%edx
+ 8048d69:	7e ec                	jle    8048d57 <phase_5+0x2b>
+ 8048d6b:	c6 45 fe 00          	movb   $0x0,-0x2(%ebp)
  8048d6f:	83 c4 f8             	add    $0xfffffff8,%esp
- 8048d72:	68 0b 98 04 08       	push   $0x804980b   ---------- 字符串 "giants"起始地址
- 8048d77:	8d 45 f8             	lea    -0x8(%ebp),%eax   -----  要比较的字符串起始地址
+ 8048d72:	68 0b 98 04 08       	push   $0x804980b
+ 8048d77:	8d 45 f8             	lea    -0x8(%ebp),%eax
  8048d7a:	50                   	push   %eax
  8048d7b:	e8 b0 02 00 00       	call   8049030 <strings_not_equal>
  8048d80:	83 c4 10             	add    $0x10,%esp
  8048d83:	85 c0                	test   %eax,%eax
- 8048d85:	74 05                	je     8048d8c <phase_5+0x60> ---- strings_not_equal返回值要为0
+ 8048d85:	74 05                	je     8048d8c <phase_5+0x60>
  8048d87:	e8 70 07 00 00       	call   80494fc <explode_bomb>
  8048d8c:	8d 65 e8             	lea    -0x18(%ebp),%esp
  8048d8f:	5b                   	pop    %ebx
@@ -608,108 +609,91 @@ Disassembly of section .text:
  8048d94:	c3                   	ret    
  8048d95:	8d 76 00             	lea    0x0(%esi),%esi
 
- 8048d98 <phase_6>:
+08048d98 <phase_6>:
  8048d98:	55                   	push   %ebp
  8048d99:	89 e5                	mov    %esp,%ebp
  8048d9b:	83 ec 4c             	sub    $0x4c,%esp
  8048d9e:	57                   	push   %edi
  8048d9f:	56                   	push   %esi
  8048da0:	53                   	push   %ebx
- 8048da1:	8b 55 08             	mov    0x8(%ebp),%edx   ----------- get &phase_6
+ 8048da1:	8b 55 08             	mov    0x8(%ebp),%edx
  8048da4:	c7 45 cc 6c b2 04 08 	movl   $0x804b26c,-0x34(%ebp)
- 8048dab:	83 c4 f8             	add    $0xfffffff8,%esp ------------- esp - 8
- 8048dae:	8d 45 e8             	lea    -0x18(%ebp),%eax ----------- 
- 8048db1:	50                   	push   %eax    ----------- **($eax) = "GRADE_BOMB"
- 8048db2:	52                   	push   %edx    ----------- &phase_6
+ 8048dab:	83 c4 f8             	add    $0xfffffff8,%esp
+ 8048dae:	8d 45 e8             	lea    -0x18(%ebp),%eax
+ 8048db1:	50                   	push   %eax
+ 8048db2:	52                   	push   %edx
  8048db3:	e8 20 02 00 00       	call   8048fd8 <read_six_numbers>
-					--- 调用read_six_numbers之后,6个数(a0-a5)将依次放在 $ebp-24 - $ebp-4 的位置
-
- 8048db8:	31 ff                	xor    %edi,%edi  ----------- set $edi = 0
+ 8048db8:	31 ff                	xor    %edi,%edi
  8048dba:	83 c4 10             	add    $0x10,%esp
- 8048dbd:	8d 76 00             	lea    0x0(%esi),%esi  --------此时 $esi == 0
- 8048dc0:	8d 45 e8             	lea    -0x18(%ebp),%eax ------------------.loop *($eax) = a[0] 
- 8048dc3:	8b 04 b8             	mov    (%eax,%edi,4),%eax  --------------- get a[$edi]
- 8048dc6:	48                   	dec    %eax  ------------ get a[$edi] - 1
- 8048dc7:	83 f8 05             	cmp    $0x5,%eax  --------- (a[$edi]-1) : 5 , 无符号比较
- 8048dca:	76 05                	jbe    8048dd1 <phase_6+0x39> ----------- if <=, goto .next, 注意是无符号比较,每个数都要小于或等于6且大于0, 不能等于0
+ 8048dbd:	8d 76 00             	lea    0x0(%esi),%esi
+ 8048dc0:	8d 45 e8             	lea    -0x18(%ebp),%eax
+ 8048dc3:	8b 04 b8             	mov    (%eax,%edi,4),%eax
+ 8048dc6:	48                   	dec    %eax
+ 8048dc7:	83 f8 05             	cmp    $0x5,%eax
+ 8048dca:	76 05                	jbe    8048dd1 <phase_6+0x39>
  8048dcc:	e8 2b 07 00 00       	call   80494fc <explode_bomb>
- 8048dd1:	8d 5f 01             	lea    0x1(%edi),%ebx -------------- .next, get 数的序号数,(1-6)
- 8048dd4:	83 fb 05             	cmp    $0x5,%ebx 	--------- 数的序号:5
- 8048dd7:	7f 23                	jg     8048dfc <phase_6+0x64> --------- if >, goto .next2
- 8048dd9:	8d 04 bd 00 00 00 00 	lea    0x0(,%edi,4),%eax  -------------  get 4*$edi
- 8048de0:	89 45 c8             	mov    %eax,-0x38(%ebp) ---------------- set ($ebp-56) = 4*$edi
- 8048de3:	8d 75 e8             	lea    -0x18(%ebp),%esi  ----------set $esi = &a[0]
- 8048de6:	8b 55 c8             	mov    -0x38(%ebp),%edx  ----------- set $edx = 4*$edi ----- .next3
- 8048de9:	8b 04 32             	mov    (%edx,%esi,1),%eax  ---------- set $eax = (4*$edi+&a[0]) = a[$edi]
- 8048dec:	3b 04 9e             	cmp    (%esi,%ebx,4),%eax  ---------  a[$edi] : a[$ebx]
- 8048def:	75 05                	jne    8048df6 <phase_6+0x5e>  ------ if !=, goto .right
+ 8048dd1:	8d 5f 01             	lea    0x1(%edi),%ebx
+ 8048dd4:	83 fb 05             	cmp    $0x5,%ebx
+ 8048dd7:	7f 23                	jg     8048dfc <phase_6+0x64>
+ 8048dd9:	8d 04 bd 00 00 00 00 	lea    0x0(,%edi,4),%eax
+ 8048de0:	89 45 c8             	mov    %eax,-0x38(%ebp)
+ 8048de3:	8d 75 e8             	lea    -0x18(%ebp),%esi
+ 8048de6:	8b 55 c8             	mov    -0x38(%ebp),%edx
+ 8048de9:	8b 04 32             	mov    (%edx,%esi,1),%eax
+ 8048dec:	3b 04 9e             	cmp    (%esi,%ebx,4),%eax
+ 8048def:	75 05                	jne    8048df6 <phase_6+0x5e>
  8048df1:	e8 06 07 00 00       	call   80494fc <explode_bomb>
- 8048df6:	43                   	inc    %ebx  -------.right
+ 8048df6:	43                   	inc    %ebx
  8048df7:	83 fb 05             	cmp    $0x5,%ebx
- 8048dfa:	7e ea                	jle    8048de6 <phase_6+0x4e> ---- if <=, goto .next3
- 8048dfc:	47                   	inc    %edi  -------------- .next2
- 8048dfd:	83 ff 05             	cmp    $0x5,%edi  ---------- %edi : 5
- 8048e00:	7e be                	jle    8048dc0 <phase_6+0x28> ------ if <=, goto .loop
- 	-------------------以上是判断任意两个数是否相等--------------------------------------------------
-
+ 8048dfa:	7e ea                	jle    8048de6 <phase_6+0x4e>
+ 8048dfc:	47                   	inc    %edi
+ 8048dfd:	83 ff 05             	cmp    $0x5,%edi
+ 8048e00:	7e be                	jle    8048dc0 <phase_6+0x28>
  8048e02:	31 ff                	xor    %edi,%edi
- 8048e04:	8d 4d e8             	lea    -0x18(%ebp),%ecx  ---- set $ecx = &a[0]
- 8048e07:	8d 45 d0             	lea    -0x30(%ebp),%eax ---- get 0xffffd678, 
- 8048e0a:	89 45 c4             	mov    %eax,-0x3c(%ebp)          ------------ set ($ebp-0x3c) = 0xffffd678, 
- 8048e0d:	8d 76 00             	lea    0x0(%esi),%esi   ------------- $esi == 0xffffd60
- 					.loop2
- 8048e10:	8b 75 cc             	mov    -0x34(%ebp),%esi ------------ .loop2  set $esi = 0x804b26c
- 8048e13:	bb 01 00 00 00       	mov    $0x1,%ebx   -------- set $ebx = 1
- 8048e18:	8d 04 bd 00 00 00 00 	lea    0x0(,%edi,4),%eax  ----- set $eax = 4*$edi
- 8048e1f:	89 c2                	mov    %eax,%edx  ---------- set $edx = 4*$edi
- 8048e21:	3b 1c 08             	cmp    (%eax,%ecx,1),%ebx  ------- 1 : a[$edi]
- 8048e24:	7d 12                	jge    8048e38 <phase_6+0xa0> ---- if >=, goto .next4
- 8048e26:	8b 04 0a             	mov    (%edx,%ecx,1),%eax  --------- set $eax = a[$edi]
+ 8048e04:	8d 4d e8             	lea    -0x18(%ebp),%ecx
+ 8048e07:	8d 45 d0             	lea    -0x30(%ebp),%eax
+ 8048e0a:	89 45 c4             	mov    %eax,-0x3c(%ebp)
+ 8048e0d:	8d 76 00             	lea    0x0(%esi),%esi
+ 8048e10:	8b 75 cc             	mov    -0x34(%ebp),%esi
+ 8048e13:	bb 01 00 00 00       	mov    $0x1,%ebx
+ 8048e18:	8d 04 bd 00 00 00 00 	lea    0x0(,%edi,4),%eax
+ 8048e1f:	89 c2                	mov    %eax,%edx
+ 8048e21:	3b 1c 08             	cmp    (%eax,%ecx,1),%ebx
+ 8048e24:	7d 12                	jge    8048e38 <phase_6+0xa0>
+ 8048e26:	8b 04 0a             	mov    (%edx,%ecx,1),%eax
  8048e29:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
- 					
- 					.next5
- 8048e30:	8b 76 08             	mov    0x8(%esi),%esi   --- .next5 ------------ set $esi
+ 8048e30:	8b 76 08             	mov    0x8(%esi),%esi
  8048e33:	43                   	inc    %ebx
- 8048e34:	39 c3                	cmp    %eax,%ebx  ----- $ebx : a[$edi]
- 8048e36:	7c f8                	jl     8048e30 <phase_6+0x98>  --- if <, goto .next5
- 					.next4
-
- 8048e38:	8b 55 c4             	mov    -0x3c(%ebp),%edx  ----- .next4 set %edx = 0xffffd678------- goto.next4
- 8048e3b:	89 34 ba             	mov    %esi,(%edx,%edi,4) --------- $edx 
- 					---------,以上循环是用来根据输入的数字生成链表---------------- 
-
+ 8048e34:	39 c3                	cmp    %eax,%ebx
+ 8048e36:	7c f8                	jl     8048e30 <phase_6+0x98>
+ 8048e38:	8b 55 c4             	mov    -0x3c(%ebp),%edx
+ 8048e3b:	89 34 ba             	mov    %esi,(%edx,%edi,4)
  8048e3e:	47                   	inc    %edi
  8048e3f:	83 ff 05             	cmp    $0x5,%edi
- 8048e42:	7e cc                	jle    8048e10 <phase_6+0x78>  if <=, goto .loop2
- 8048e44:	8b 75 d0             	mov    -0x30(%ebp),%esi -------- set $esi = 第一个指针的值 p[0]
- 8048e47:	89 75 cc             	mov    %esi,-0x34(%ebp) -------- $epb-0x34中保存 p[0]
- 8048e4a:	bf 01 00 00 00       	mov    $0x1,%edi ---------- set $edi=1
- 8048e4f:	8d 55 d0             	lea    -0x30(%ebp),%edx   ------ set $edx = $ebp-0x30, 则 $edx = &p[0]
-
- 					.next6
- 8048e52:	8b 04 ba             	mov    (%edx,%edi,4),%eax  ---- .next6 , set $eax = p[$edi]
- 8048e55:	89 46 08             	mov    %eax,0x8(%esi) ------ set      = p[$edi]
- 8048e58:	89 c6                	mov    %eax,%esi  --------- set $esi = p[$edi]
+ 8048e42:	7e cc                	jle    8048e10 <phase_6+0x78>
+ 8048e44:	8b 75 d0             	mov    -0x30(%ebp),%esi
+ 8048e47:	89 75 cc             	mov    %esi,-0x34(%ebp)
+ 8048e4a:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048e4f:	8d 55 d0             	lea    -0x30(%ebp),%edx
+ 8048e52:	8b 04 ba             	mov    (%edx,%edi,4),%eax
+ 8048e55:	89 46 08             	mov    %eax,0x8(%esi)
+ 8048e58:	89 c6                	mov    %eax,%esi
  8048e5a:	47                   	inc    %edi
  8048e5b:	83 ff 05             	cmp    $0x5,%edi
- 8048e5e:	7e f2                	jle    8048e52 <phase_6+0xba>  if <=, goto .next6
-
+ 8048e5e:	7e f2                	jle    8048e52 <phase_6+0xba>
  8048e60:	c7 46 08 00 00 00 00 	movl   $0x0,0x8(%esi)
- 8048e67:	8b 75 cc             	mov    -0x34(%ebp),%esi -------- set $esi = p[0]
- 8048e6a:	31 ff                	xor    %edi,%edi   ----------- set $edi = 0
+ 8048e67:	8b 75 cc             	mov    -0x34(%ebp),%esi
+ 8048e6a:	31 ff                	xor    %edi,%edi
  8048e6c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
-
- 					.next8 -----------------$esi 为第一个数字对应的指针p[0]
- 8048e70:	8b 56 08             	mov    0x8(%esi),%edx  ---- .next8, set %edx = p[i+1]
- 8048e73:	8b 06                	mov    (%esi),%eax  ---------------get  *p[i]
- 8048e75:	3b 02                	cmp    (%edx),%eax  *p[i] : *p[i+1]
- 8048e77:	7d 05                	jge    8048e7e <phase_6+0xe6>  ---- if >=, goto .next7
+ 8048e70:	8b 56 08             	mov    0x8(%esi),%edx
+ 8048e73:	8b 06                	mov    (%esi),%eax
+ 8048e75:	3b 02                	cmp    (%edx),%eax
+ 8048e77:	7d 05                	jge    8048e7e <phase_6+0xe6>
  8048e79:	e8 7e 06 00 00       	call   80494fc <explode_bomb>
- 					.nxxt7
- 8048e7e:	8b 76 08             	mov    0x8(%esi),%esi ----- .next7, set %esi指向下一个数字
+ 8048e7e:	8b 76 08             	mov    0x8(%esi),%esi
  8048e81:	47                   	inc    %edi
  8048e82:	83 ff 04             	cmp    $0x4,%edi
- 8048e85:	7e e9                	jle    8048e70 <phase_6+0xd8> ---- if <=, goto .next8
+ 8048e85:	7e e9                	jle    8048e70 <phase_6+0xd8>
  8048e87:	8d 65 a8             	lea    -0x58(%ebp),%esp
  8048e8a:	5b                   	pop    %ebx
  8048e8b:	5e                   	pop    %esi
@@ -723,27 +707,25 @@ Disassembly of section .text:
  8048e94:	55                   	push   %ebp
  8048e95:	89 e5                	mov    %esp,%ebp
  8048e97:	83 ec 08             	sub    $0x8,%esp
- 8048e9a:	8b 55 08             	mov    0x8(%ebp),%edx  -------- get 参数 setret_phase中传的参数地址,指向 36
- 8048e9d:	8b 45 0c             	mov    0xc(%ebp),%eax  --------- get 参数 setret_phase中传的参数 value
+ 8048e9a:	8b 55 08             	mov    0x8(%ebp),%edx
+ 8048e9d:	8b 45 0c             	mov    0xc(%ebp),%eax
  8048ea0:	85 d2                	test   %edx,%edx
- 8048ea2:	75 0c                	jne    8048eb0 <fun7+0x1c>     -------- if $edx != 0, goto .next
- 8048ea4:	b8 ff ff ff ff       	mov    $0xffffffff,%eax      -------------- set $eax = -1
- 8048ea9:	eb 37                	jmp    8048ee2 <fun7+0x4e>   ----------- goto .done
+ 8048ea2:	75 0c                	jne    8048eb0 <fun7+0x1c>
+ 8048ea4:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 8048ea9:	eb 37                	jmp    8048ee2 <fun7+0x4e>
  8048eab:	90                   	nop
  8048eac:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
- 					.next
- 8048eb0:	3b 02                	cmp    (%edx),%eax      --------- $eax : *$edx
- 8048eb2:	7d 11                	jge    8048ec5 <fun7+0x31>  ---------- if >=, goto .next2
- 8048eb4:	83 c4 f8             	add    $0xfffffff8,%esp  -------- esp - 8
+ 8048eb0:	3b 02                	cmp    (%edx),%eax
+ 8048eb2:	7d 11                	jge    8048ec5 <fun7+0x31>
+ 8048eb4:	83 c4 f8             	add    $0xfffffff8,%esp
  8048eb7:	50                   	push   %eax
  8048eb8:	8b 42 04             	mov    0x4(%edx),%eax
  8048ebb:	50                   	push   %eax
  8048ebc:	e8 d3 ff ff ff       	call   8048e94 <fun7>
  8048ec1:	01 c0                	add    %eax,%eax
- 8048ec3:	eb 1d                	jmp    8048ee2 <fun7+0x4e>   ---- goto .done
- 					.next2
- 8048ec5:	3b 02                	cmp    (%edx),%eax     ------------- $eax : *$edx
- 8048ec7:	74 17                	je     8048ee0 <fun7+0x4c> -------- if ==, goto .next3
+ 8048ec3:	eb 1d                	jmp    8048ee2 <fun7+0x4e>
+ 8048ec5:	3b 02                	cmp    (%edx),%eax
+ 8048ec7:	74 17                	je     8048ee0 <fun7+0x4c>
  8048ec9:	83 c4 f8             	add    $0xfffffff8,%esp
  8048ecc:	50                   	push   %eax
  8048ecd:	8b 42 08             	mov    0x8(%edx),%eax
@@ -751,18 +733,16 @@ Disassembly of section .text:
  8048ed1:	e8 be ff ff ff       	call   8048e94 <fun7>
  8048ed6:	01 c0                	add    %eax,%eax
  8048ed8:	40                   	inc    %eax
- 8048ed9:	eb 07                	jmp    8048ee2 <fun7+0x4e>  ---- goto .done
+ 8048ed9:	eb 07                	jmp    8048ee2 <fun7+0x4e>
  8048edb:	90                   	nop
  8048edc:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
- 					.next3
- 8048ee0:	31 c0                	xor    %eax,%eax ---------- set $eax = 0
- 					.done
+ 8048ee0:	31 c0                	xor    %eax,%eax
  8048ee2:	89 ec                	mov    %ebp,%esp
  8048ee4:	5d                   	pop    %ebp
  8048ee5:	c3                   	ret    
  8048ee6:	89 f6                	mov    %esi,%esi
 
-8048ee8 <secret_phase>:
+08048ee8 <secret_phase>:
  8048ee8:	55                   	push   %ebp
  8048ee9:	89 e5                	mov    %esp,%ebp
  8048eeb:	83 ec 14             	sub    $0x14,%esp
@@ -771,21 +751,21 @@ Disassembly of section .text:
  8048ef4:	6a 00                	push   $0x0
  8048ef6:	6a 0a                	push   $0xa
  8048ef8:	6a 00                	push   $0x0
- 8048efa:	50                   	push   %eax ----------- get &secret_string
- 8048efb:	e8 f0 f8 ff ff       	call   80487f0 <__strtol_internal@plt> ------- 将字符串转换成整数value
+ 8048efa:	50                   	push   %eax
+ 8048efb:	e8 f0 f8 ff ff       	call   80487f0 <__strtol_internal@plt>
  8048f00:	83 c4 10             	add    $0x10,%esp
  8048f03:	89 c3                	mov    %eax,%ebx
- 8048f05:	8d 43 ff             	lea    -0x1(%ebx),%eax   ----- $eax = value-1
- 8048f08:	3d e8 03 00 00       	cmp    $0x3e8,%eax   ---------- value-1 : 0x3e8 (1000)
- 8048f0d:	76 05                	jbe    8048f14 <secret_phase+0x2c>  ----- if <=,  无符号比较, OK
+ 8048f05:	8d 43 ff             	lea    -0x1(%ebx),%eax
+ 8048f08:	3d e8 03 00 00       	cmp    $0x3e8,%eax
+ 8048f0d:	76 05                	jbe    8048f14 <secret_phase+0x2c>
  8048f0f:	e8 e8 05 00 00       	call   80494fc <explode_bomb>
- 8048f14:	83 c4 f8             	add    $0xfffffff8,%esp  ---------- esp-8
- 8048f17:	53                   	push   %ebx   ------- push value
- 8048f18:	68 20 b3 04 08       	push   $0x804b320 -------- push 0x24
- 8048f1d:	e8 72 ff ff ff       	call   8048e94 <fun7>  ------ 调用fun7
+ 8048f14:	83 c4 f8             	add    $0xfffffff8,%esp
+ 8048f17:	53                   	push   %ebx
+ 8048f18:	68 20 b3 04 08       	push   $0x804b320
+ 8048f1d:	e8 72 ff ff ff       	call   8048e94 <fun7>
  8048f22:	83 c4 10             	add    $0x10,%esp
- 8048f25:	83 f8 07             	cmp    $0x7,%eax    ----------- 比较返回值 : 0x7
- 8048f28:	74 05                	je     8048f2f <secret_phase+0x47>  ---------if ==, OK
+ 8048f25:	83 f8 07             	cmp    $0x7,%eax
+ 8048f28:	74 05                	je     8048f2f <secret_phase+0x47>
  8048f2a:	e8 cd 05 00 00       	call   80494fc <explode_bomb>
  8048f2f:	83 c4 f4             	add    $0xfffffff4,%esp
  8048f32:	68 20 98 04 08       	push   $0x8049820
@@ -850,40 +830,30 @@ Disassembly of section .text:
  8048fd5:	8d 76 00             	lea    0x0(%esi),%esi
 
 08048fd8 <read_six_numbers>:
-				---------------- 
  8048fd8:	55                   	push   %ebp
  8048fd9:	89 e5                	mov    %esp,%ebp
  8048fdb:	83 ec 08             	sub    $0x8,%esp
- 8048fde:	8b 4d 08             	mov    0x8(%ebp),%ecx ------- get &phase_2
- 						--------------------- get &phase_6
- 8048fe1:	8b 55 0c             	mov    0xc(%ebp),%edx ------- get  0xffffd6a0
- 						--------------------- **($edx) = "GRADE_BOMB"
- 8048fe4:	8d 42 14             	lea    0x14(%edx),%eax ----  get 0xffffd6b4
- 						---------------------$eax = 0xffffd6a4, *($eax) = 0x00007374
+ 8048fde:	8b 4d 08             	mov    0x8(%ebp),%ecx
+ 8048fe1:	8b 55 0c             	mov    0xc(%ebp),%edx
+ 8048fe4:	8d 42 14             	lea    0x14(%edx),%eax
  8048fe7:	50                   	push   %eax
- 8048fe8:	8d 42 10             	lea    0x10(%edx),%eax ----- get 0xffffd6b0
- 						--------------------- $eax = 0xffffd6a0, *($eax) = 0x0
+ 8048fe8:	8d 42 10             	lea    0x10(%edx),%eax
  8048feb:	50                   	push   %eax
- 8048fec:	8d 42 0c             	lea    0xc(%edx),%eax  ----- get 0xffffd6ac
- 						--------------------- $eax = 0xffffd69c
+ 8048fec:	8d 42 0c             	lea    0xc(%edx),%eax
  8048fef:	50                   	push   %eax
- 8048ff0:	8d 42 08             	lea    0x8(%edx),%eax ------- get 0xffffd6a8
- 						--------------------- $eax = 0xffffd698
+ 8048ff0:	8d 42 08             	lea    0x8(%edx),%eax
  8048ff3:	50                   	push   %eax
- 8048ff4:	8d 42 04             	lea    0x4(%edx),%eax -------- get 0xffffd6a4
- 						---------------------- $eax = 0xffffd694
+ 8048ff4:	8d 42 04             	lea    0x4(%edx),%eax
  8048ff7:	50                   	push   %eax
- 8048ff8:	52                   	push   %edx --------------- get 0xffffd6a0
- 						---------------------- **($edx) == "GRADE_BOMB"
- 8048ff9:	68 1b 9b 04 08       	push   $0x8049b1b ----------- get 0x8049b1b  "%d %d %d %d %d %d"
- 8048ffe:	51                   	push   %ecx       ----------- get &phase_2
- 						---------------------- get &phase_6
+ 8048ff8:	52                   	push   %edx
+ 8048ff9:	68 1b 9b 04 08       	push   $0x8049b1b
+ 8048ffe:	51                   	push   %ecx
  8048fff:	e8 5c f8 ff ff       	call   8048860 <sscanf@plt>
  8049004:	83 c4 20             	add    $0x20,%esp
- 8049007:	83 f8 05             	cmp    $0x5,%eax ------------ %eax:5
- 804900a:	7f 05                	jg     8049011 <read_six_numbers+0x39>   ------ if >, goto right
+ 8049007:	83 f8 05             	cmp    $0x5,%eax
+ 804900a:	7f 05                	jg     8049011 <read_six_numbers+0x39>
  804900c:	e8 eb 04 00 00       	call   80494fc <explode_bomb>
- 8049011:	89 ec                	mov    %ebp,%esp   ------------ :right
+ 8049011:	89 ec                	mov    %ebp,%esp
  8049013:	5d                   	pop    %ebp
  8049014:	c3                   	ret    
  8049015:	8d 76 00             	lea    0x0(%esi),%esi
@@ -892,7 +862,7 @@ Disassembly of section .text:
  8049018:	55                   	push   %ebp
  8049019:	89 e5                	mov    %esp,%ebp
  804901b:	8b 55 08             	mov    0x8(%ebp),%edx
- 804901e:	31 c0                	xor    %eax,%eax  ; 0
+ 804901e:	31 c0                	xor    %eax,%eax
  8049020:	80 3a 00             	cmpb   $0x0,(%edx)
  8049023:	74 07                	je     804902c <string_length+0x14>
  8049025:	42                   	inc    %edx
@@ -910,11 +880,9 @@ Disassembly of section .text:
  8049036:	57                   	push   %edi
  8049037:	56                   	push   %esi
  8049038:	53                   	push   %ebx
- 8049039:	8b 75 08             	mov    0x8(%ebp),%esi ;&phase_1
- 						----------- get  由phase_5字符串的字符是低4位在table中偏移得到的新字符串的起始地址
- 804903c:	8b 7d 0c             	mov    0xc(%ebp),%edi ;0x80497c0
- 						----------- get "giants", 则可以得出从table中得到的字符串为"giants"
- 804903f:	83 c4 f4             	add    $0xfffffff4,%esp ;-12
+ 8049039:	8b 75 08             	mov    0x8(%ebp),%esi
+ 804903c:	8b 7d 0c             	mov    0xc(%ebp),%edi
+ 804903f:	83 c4 f4             	add    $0xfffffff4,%esp
  8049042:	56                   	push   %esi
  8049043:	e8 d0 ff ff ff       	call   8049018 <string_length>
  8049048:	89 c3                	mov    %eax,%ebx
@@ -1357,7 +1325,7 @@ Disassembly of section .text:
  8049532:	53                   	push   %ebx
  8049533:	83 3d 80 b4 04 08 06 	cmpl   $0x6,0x804b480
  804953a:	75 63                	jne    804959f <phase_defused+0x73>
- 804953c:	8d 5d b0             	lea    -0x50(%ebp),%ebx ------ set $ebx = $ebp-0x50
+ 804953c:	8d 5d b0             	lea    -0x50(%ebp),%ebx
  804953f:	53                   	push   %ebx
  8049540:	8d 45 ac             	lea    -0x54(%ebp),%eax
  8049543:	50                   	push   %eax
