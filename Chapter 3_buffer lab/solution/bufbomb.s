@@ -419,7 +419,7 @@ Disassembly of section .text:
  8048c05:	89 e5                	mov    %esp,%ebp
  8048c07:	83 ec 38             	sub    $0x38,%esp
  8048c0a:	8d 45 d8             	lea    -0x28(%ebp),%eax
- 8048c0d:	89 04 24             	mov    %eax,(%esp) <-- $eax保存输入字符串存放的地址, 由栈来传递给Gets函数
+ 8048c0d:	89 04 24             	mov    %eax,(%esp)
  8048c10:	e8 35 ff ff ff       	call   8048b4a <Gets>
  8048c15:	b8 01 00 00 00       	mov    $0x1,%eax
  8048c1a:	c9                   	leave  
@@ -456,10 +456,10 @@ Disassembly of section .text:
  8048c80:	89 e5                	mov    %esp,%ebp
  8048c82:	53                   	push   %ebx
  8048c83:	83 ec 24             	sub    $0x24,%esp
- 8048c86:	e8 a5 fe ff ff       	call   8048b30 <uniqueval> <-- get local
- 8048c8b:	89 45 f4             	mov    %eax,-0xc(%ebp) <-- 保存local到栈中
- 8048c8e:	e8 71 ff ff ff       	call   8048c04 <getbuf> <-- 调用getbuf
- 8048c93:	89 c3                	mov    %eax,%ebx  <---保存getbuf返回值
+ 8048c86:	e8 a5 fe ff ff       	call   8048b30 <uniqueval>
+ 8048c8b:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 8048c8e:	e8 71 ff ff ff       	call   8048c04 <getbuf>
+ 8048c93:	89 c3                	mov    %eax,%ebx
  8048c95:	e8 96 fe ff ff       	call   8048b30 <uniqueval>
  8048c9a:	8b 55 f4             	mov    -0xc(%ebp),%edx
  8048c9d:	39 d0                	cmp    %edx,%eax
@@ -1669,7 +1669,7 @@ Disassembly of section .text:
  8049dd1:	89 e5                	mov    %esp,%ebp
  8049dd3:	5d                   	pop    %ebp
  8049dd4:	c3                   	ret    
- 8049dd5:	66 66 2e 0f 1f 84 00 	data32 nopw %cs:0x0(%eax,%eax,1)
+ 8049dd5:	66 66 2e 0f 1f 84 00 	data16 nopw %cs:0x0(%eax,%eax,1)
  8049ddc:	00 00 00 00 
 
 08049de0 <__libc_csu_init>:

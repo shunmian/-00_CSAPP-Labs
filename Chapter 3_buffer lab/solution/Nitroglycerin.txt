@@ -1,0 +1,12 @@
+
+Nitroglycerin.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <.text>:
+   0:	8d 6c 24 28          	lea    0x28(%esp),%ebp
+   4:	a1 e4 c1 04 08       	mov    0x804c1e4,%eax
+   9:	bb 2e 8c 04 08       	mov    $0x8048c2e,%ebx
+   e:	53                   	push   %ebx
+   f:	c3                   	ret    
